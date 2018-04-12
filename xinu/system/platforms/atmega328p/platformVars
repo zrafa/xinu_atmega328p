@@ -1,0 +1,18 @@
+#
+# Platform-specific Makefile definitions for the ATMega328P port of Embedded Xinu.
+#
+
+# Include default atmega328p definitions
+include $(TOPDIR)/xinu/system/arch/atmega328p/platformVars
+
+PLATFORM_NAME := Atmel atmega328p
+
+# Add flags to compile 
+CFLAGS        += -Os -DF_CPU=16000000UL -mmcu=atmega328p -fno-inline-small-functions -mrelax -nostartfiles
+ASFLAGS       += -mmcu=atmega328p 
+
+# Add a define so we can test for ATMega328P in C code if absolutely needed
+DEFS          += -D_AVR_IO_H_
+
+
+

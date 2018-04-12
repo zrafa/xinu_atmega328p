@@ -1,0 +1,13 @@
+# This Makefile contains rules to build files in the system/ directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = system
+
+# Source files for this component
+
+# C_FILES = kprintf.c
+C_FILES = 
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/xinu/${COMP}
+COMP_SRC += ${C_FILES:%=${DIR}/%}

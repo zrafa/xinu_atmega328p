@@ -1,0 +1,16 @@
+# This Makefile contains rules to build files in the system/platforms/x86 directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = system/platforms/atmega328p
+
+# Source files for this component
+
+# Important system components
+C_FILES = startup.c
+
+# Files for preemption and interrupts
+S_FILES += crt1.S
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/xinu/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}
