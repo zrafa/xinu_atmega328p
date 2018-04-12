@@ -30,18 +30,19 @@ typedef struct
  */
 int kputc(unsigned char c)	/* Character to write	*/
 {
+
+	/* init del USART. Habria que inicializar una unica vez, no en cada kputc
+	 * Pero, por ahora solo queremos al menos lograr enviar un char
+	 */
 	uart_t *puerto_serial = (uart_t *) (0xc0);
 
         puerto_serial->baud_rate_h=(uint8_t) (BAUD_PRESCALE >> 8);
-
         puerto_serial->baud_rate_l=(uint8_t) BAUD_PRESCALE;
-
         puerto_serial->status_control_c=(uint8_t) (0x06);
-        
         puerto_serial->status_control_b=(uint8_t) (0x18);       
 
 
-
+	/* polling */
 	while(!((puerto_serial->status_control_a & (0x20))==0x20))
 	;
         puerto_serial->data_es=c;
