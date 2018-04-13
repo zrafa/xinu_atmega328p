@@ -5,8 +5,8 @@ COMP = system
 
 # Source files for this component
 
-# C_FILES = kprintf.c
-C_FILES = 
+C_FILES = kprintf.c
+# C_FILES = 
 
 # Add the files to the compile source path
 DIR = ${TOPDIR}/xinu/${COMP}

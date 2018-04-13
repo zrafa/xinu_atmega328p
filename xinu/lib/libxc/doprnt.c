@@ -6,12 +6,16 @@
 #define NULL    0
 #define PRECISION 6
 
+#if SIGNED_DECIMAL || UNSIGNED_DECIMAL
 static void _prtl10(long num, char *str);
+#endif
 static void _prtl8(long num, char *str);
 static void _prtX16(long num, char *str);
 static void _prtl16(long num, char *str);
 static void _prtl2(long num, char *str);
+#if DECIMAL_FLOATING_POINT
 static void _prtdbl(double num, int precision, char *str);
+#endif
 
 /*------------------------------------------------------------------------
  *  _doprnt  -  Format and write output using 'func' to write characters.
@@ -40,8 +44,9 @@ void	_doprnt(
     char sign;                  /* Set to '-' for negative decimals     */
     char digit1;                /* Offset to add to first numeric digit */
     long larg;
+#if DECIMAL_FLOATING_POINT
     double darg;
-
+#endif
     for (;;)
     {
         /* Echo characters until '%' or end of fmt string */
@@ -126,7 +131,7 @@ void	_doprnt(
             }
             fill = ' ';
             break;
-
+#if SIGNED_DECIMAL
         case 'd':
             larg = va_arg(ap, long);
 
@@ -136,7 +141,8 @@ void	_doprnt(
             }
             _prtl10(larg, str);
             break;
-            
+#endif
+#if DECIMAL_FLOATING_POINT
         case 'f':
             darg = va_arg(ap, double);
 
@@ -146,7 +152,8 @@ void	_doprnt(
             }
             _prtdbl(darg, PRECISION, str);
             break;
-
+#endif
+#if UNSIGNED_DECIMAL
         case 'u':
             digit1 = '\0';
             /* "negative" longs in unsigned format  */
@@ -164,7 +171,7 @@ void	_doprnt(
             str[0] += digit1;
             fmax = 0;
             break;
-
+#endif
         case 'o':
             larg = va_arg(ap, long);
 
@@ -279,6 +286,7 @@ void	_doprnt(
 
 }
 
+#if SIGNED_DECIMAL || UNSIGNED_DECIMAL
 /*------------------------------------------------------------------------
  *  _prtl10  -  Converts long to base 10 string.
  *------------------------------------------------------------------------
@@ -304,6 +312,7 @@ static void		_prtl10(
     while (i >= 0)
         *str++ = temp[i--];
 }
+#endif
 
 /*------------------------------------------------------------------------
  *  _prtl8  -  Converts long to base 8 string.
@@ -406,6 +415,7 @@ static void	_prtl2(
         *str++ = temp[i--];
 }
 
+#if DECIMAL_FLOATING_POINT
 /*------------------------------------------------------------------------
  *  _prtdbl  -  Converts double to binary string.
  *------------------------------------------------------------------------
@@ -430,3 +440,4 @@ static void	_prtdbl(
     *str++ = '.';
     _prtl10(p, str);
 }
+#endif
