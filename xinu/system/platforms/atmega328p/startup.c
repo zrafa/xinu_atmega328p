@@ -38,5 +38,6 @@ void start(void)
 		((function_type)ctor_pt)();
 	}
 
-	asm volatile("rjmp main");
+	asm volatile("call main");
+	asm volatile("fake_halt: rjmp fake_halt");
 }
