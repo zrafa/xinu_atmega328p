@@ -22,7 +22,18 @@ typedef struct
 #define USART_BAUDRATE 9600
 #define BAUD_PRESCALE (((F_CPU/(USART_BAUDRATE*16UL)))-1)
 
+uart_t *puerto_serial = (uart_t *) (0xc0);
+unsigned char initiated = 0;
 
+static void init()
+{
+        puerto_serial->baud_rate_h=(uint8_t) (BAUD_PRESCALE >> 8);
+        puerto_serial->baud_rate_l=(uint8_t) BAUD_PRESCALE;
+        puerto_serial->status_control_c=(uint8_t) (0x06);
+        puerto_serial->status_control_b=(uint8_t) (0x18);       
+
+	initiated = 1;
+}
 
 /*------------------------------------------------------------------------
  * kputc  -  use polled I/O to write a character to the console
@@ -34,12 +45,9 @@ int kputc(unsigned char c)	/* Character to write	*/
 	/* init del USART. Habria que inicializar una unica vez, no en cada kputc
 	 * Pero, por ahora solo queremos al menos lograr enviar un char
 	 */
-	uart_t *puerto_serial = (uart_t *) (0xc0);
+	if (! initiated)
+		init();
 
-        puerto_serial->baud_rate_h=(uint8_t) (BAUD_PRESCALE >> 8);
-        puerto_serial->baud_rate_l=(uint8_t) BAUD_PRESCALE;
-        puerto_serial->status_control_c=(uint8_t) (0x06);
-        puerto_serial->status_control_b=(uint8_t) (0x18);       
 
 
 	/* polling */
