@@ -204,6 +204,7 @@ endif
 # (The loader should always be first, ensuring the image starts with it.)
 SYSCOMPS := xinu/loader/platforms/$(PLATFORM) \
             xinu/system/platforms/$(PLATFORM) \
+            device/atmega328/serial/ \
             xinu/system
 
 # APPCOMPS, the list of application components to build into Xinu, should also
