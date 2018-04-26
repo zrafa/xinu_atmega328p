@@ -1,1 +1,1 @@
-port de getmem 
+port de getmem, freemem y strncpy 
