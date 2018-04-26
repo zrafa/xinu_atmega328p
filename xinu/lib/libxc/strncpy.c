@@ -33,16 +33,3 @@ char *strncpy(char *s1, const char *s2, int n)
     return os1;
 }
 
-
-
-/*
-char  *strncpy(char *dest, const char *src, int count)
-{
-  char *tmp = dest;
-  while (count-- && (*dest++ = *src++) != '\0')
-    /* nothing */;
-/*
-  return tmp;
-/*
-}
-*/
