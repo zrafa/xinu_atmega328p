@@ -5,6 +5,9 @@
 extern	void	_doprnt(char *, va_list ap, int (*)(int));
 extern int kputc(unsigned char c);
 
+// MODIFICADO-TEMPORALMENTE
+#define OK (1)
+
 /*------------------------------------------------------------------------
  * kprintf  -  use polled I/O to print formatted output on the console
  *------------------------------------------------------------------------

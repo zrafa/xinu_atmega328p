@@ -38,6 +38,7 @@ void start(void)
 		((function_type)ctor_pt)();
 	}
 
-	asm volatile("call main");
+	// ANTERIORMENTE-EN-BAREMETAL asm volatile("call main");
+	asm volatile("rjmp nulluser");
 	asm volatile("fake_halt: rjmp fake_halt");
 }

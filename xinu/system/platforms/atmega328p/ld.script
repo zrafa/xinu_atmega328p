@@ -19,7 +19,7 @@ __initial_stack_pointer = 0x800800;
 MEMORY
 {
   ROM(rx)   : ORIGIN = 0, LENGTH = 32K - 0x14
-  RAM(rw!x) : ORIGIN = 0x800100, LENGTH = 0x0400
+  RAM(rw!x) : ORIGIN = 0x800100, LENGTH = 0x0700
 }
 
 SECTIONS

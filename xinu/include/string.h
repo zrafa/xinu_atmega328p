@@ -1,28 +1,10 @@
-/**
- * @file string.h
- */
-/* Embedded Xinu, Copyright (C) 2009, 2013.  All rights reserved. */
+/* string.h */
 
-#ifndef _STRING_H_
-#define _STRING_H_
-
-#include <stddef.h>
-
-void *memchr(const void *s, int c, size_t n);
-int memcmp(const void *s1, const void *s2, size_t n);
-void *memcpy(void *dest, const void *src, size_t n);
-void *memset(void *s, int c, size_t n);
-
-char *strchr(const char *s, int c);
-int strcmp(const char *s1, const char *s2);
-char *strcpy(char *dest, const char *src);
-size_t strlcpy(char *dest, const char *src, size_t destsize);
-size_t strlen(const char *s);
-char *strncat(char *dest, const char *src, size_t n);
-int strncmp(const char *s1, const char *s2, size_t n);
-char *strncpy(char *dest, const char *src, size_t n);
-size_t strnlen(const char *s, size_t maxlen);
-char *strrchr(const char *s, int c);
-char *strstr(const char *haystack, const char *needle);
-
-#endif /* _STRING_H_ */
+// extern	char	*strncpy(char *, const char *, int32);
+extern	char	*strncpy(char *, const char *, int);
+extern	char	*strncat(char *, const char *, int32);
+extern	int32	strncmp(const char *, const char *, int32);
+extern	char	*strchr(const char *, int32);
+extern	char	*strrchr(const char *, int32);
+extern	char	*strstr(const char *, const char *);
+extern	int32	strnlen(const char *, uint32);

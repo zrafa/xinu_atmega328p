@@ -6,7 +6,8 @@
 LIBNAME := libxc
 
 # C files to compile (.c)
-CFILES  := doprnt.c 
+CFILES  = doprnt.c 
+CFILES  += strncpy.c 
 
 # Assembly files to compile (.S)
 SFILES  :=
