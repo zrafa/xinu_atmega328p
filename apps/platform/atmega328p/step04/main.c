@@ -20,7 +20,7 @@ int main()
         kprintf("    Direccion asignada por getmem a msg:[0x%08X]\r\n", (uint32)msg);
 
         char * msg_2 = (char *)getmem(16);
-        kprintf("    Direccion asignada port getmem a msg_2:[0x%08X]\r\n", (uint32)msg_2);
+        kprintf("    Direccion asignada por getmem a msg_2:[0x%08X]\r\n", (uint32)msg_2);
 
         strncpy(msg_2, mensaje, 13);
 
