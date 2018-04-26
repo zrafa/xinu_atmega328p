@@ -54,7 +54,7 @@ void	nulluser(void)
 
 	/* Output Xinu memory layout */
 
-	kprintf("%10d bytes physical memory.\r\n",
+	kprintf("0X%08X bytes physical memory.\r\n",
 	// MODIFICADO-TEMPORALMENTE	(uint32)maxheap - (uint32)addressp2k(0));
 		(uint32)maxheap - (uint32)minheap);
 	kprintf("           [0x%08X to 0x%08X]\r\n",
@@ -72,7 +72,7 @@ void	nulluser(void)
 	// MODIFICADO-TEMPORALMENTE 	(uint32)minheap - (uint32)&_end);
 	// MODIFICADO-TEMPORALMENTE kprintf("           [0x%08X to 0x%08X]\r\n",
 	// MODIFICADO-TEMPORALMENTE 	(uint32)&_end, (uint32)minheap - 1);
-	kprintf("%10d bytes heap space.\r\n",
+	kprintf("0X%08X bytes heap space.\r\n",
 		(uint32)maxheap - (uint32)minheap);
 	kprintf("           [0x%08X to 0x%08X]\r\n\r\n",
 		(uint32)minheap, (uint32)maxheap - 1);
