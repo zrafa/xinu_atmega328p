@@ -66,8 +66,9 @@ extern	struct	dentry	devtab[]; /* one entry per device */
 /* Configuration and Size Constants */
 
 // MODIFICADO-TEMPORALMENTE #define	NPROC	     100	/* number of user processes		*/
-#define	NPROC	     8	/* number of user processes		*/
-#define	NSEM	     100	/* number of semaphores			*/
+#define	NPROC	     2	/* number of user processes		*/
+// MODIFICADO-TEMPORALMENTE #define	NSEM	     100	/* number of semaphores			*/
+#define	NSEM	     1	/* number of semaphores			*/
 #define	IRQ_TIMER    IRQ_HW5	/* timer IRQ is wired to hardware 5	*/
 #define	IRQ_ATH_MISC IRQ_HW4	/* Misc. IRQ is wired to hardware 4	*/
 // MODIFICADO-TEMPORALMENTE #define MAXADDR      0x02000000	/* 32 MB of RAM				*/

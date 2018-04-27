@@ -10,6 +10,9 @@
 extern	void	_start(void);	/* start of Xinu code */
 extern	void	*_end;		/* end of Xinu code */
 
+// MODIFICADO-TEMPORALMENTE (linea agregada)
+extern unsigned char _bss_end;
+
 /* Function prototypes */
 
 extern	void main(void);	/* main is the first process created	*/
@@ -123,7 +126,8 @@ static	void	sysinit(void)
 
 	// MODIFICADO-TEMPORALMENTE maxheap = (void *)addressp2k(MAXADDR);
 	maxheap = (void *)0x00700; // MODIFICADO-TEMPORALMENTE
-	minheap = (void *)0x00400; // MODIFICADO-TEMPORALMENTE
+	// MODIFICADO-TEMPORALMENTE minheap = (void *)0x00400; // MODIFICADO-TEMPORALMENTE
+	minheap = (void *)&_bss_end; // MODIFICADO-TEMPORALMENTE
 
 	memlist.mnext = (struct memblk *)minheap;
 
