@@ -125,7 +125,7 @@ static	void	sysinit(void)
 	/* Initialize the free memory list */
 
 	// MODIFICADO-TEMPORALMENTE maxheap = (void *)addressp2k(MAXADDR);
-	maxheap = (void *)0x00700; // MODIFICADO-TEMPORALMENTE
+	maxheap = (void *)0x00800; // MODIFICADO-TEMPORALMENTE
 	// MODIFICADO-TEMPORALMENTE minheap = (void *)0x00400; // MODIFICADO-TEMPORALMENTE
 	minheap = (void *)&_bss_end; // MODIFICADO-TEMPORALMENTE
 

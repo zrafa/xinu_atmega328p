@@ -1,9 +1,9 @@
 /* memory.h - roundmb, truncmb, freestk */
 
 // #define	PAGE_SIZE	4096
-#define	PAGE_SIZE	40
+#define	PAGE_SIZE	16
 // #define MAXADDR		0x02000000	/* 160NL has 32MB RAM		*/
-#define MAXADDR		0x00000700	/* 160NL has 32MB RAM		*/
+#define MAXADDR		0x00000800	/* 160NL has 32MB RAM		*/
 
 /*----------------------------------------------------------------------
  * roundmb, truncmb - round or truncate address to memory block size
