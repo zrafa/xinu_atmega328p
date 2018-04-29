@@ -15,6 +15,7 @@ C_FILES += getmem.c
 
 C_FILES += freemem.c 
 
+C_FILES += getstk.c 
 
 # Add the files to the compile source path
 DIR = ${TOPDIR}/xinu/${COMP}
